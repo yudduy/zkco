@@ -1,6 +1,25 @@
 [profile.default]
-src = "src"
+# Change source directory to be more specific
+src = "operator/src"
 out = "out"
 libs = ["lib"]
+test = "test"
 
-# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+# More specific exclude patterns to prevent compilation of Certora files
+exclude = [
+    "lib/**/certora/**",
+    "lib/**/*.t.sol",        # Exclude all test files in libraries
+    "lib/**/test/**",        # Exclude test directories
+    "lib/**/harnesses/**",   # Exclude harness directories that might have Certora files
+    "lib/**/mocks/**",       # Exclude mock directories
+]
+
+remappings = [
+    "@openzeppelin/=lib/eigenlayer-contracts/lib/openzeppelin-contracts-v4.9.0/",
+    "@openzeppelin-upgradeable/=lib/eigenlayer-contracts/lib/openzeppelin-contracts-upgradeable-v4.9.0/",
+    "ds-test/=lib/forge-std/lib/ds-test/src/",
+    "eigenlayer-contracts/=lib/eigenlayer-contracts/src/",
+    "forge-std/=lib/forge-std/src/",
+    "openzeppelin/=lib/eigenlayer-contracts/lib/openzeppelin-contracts-v4.9.0/contracts/",
+    "openzeppelin-upgradeable/=lib/eigenlayer-contracts/lib/openzeppelin-contracts-upgradeable-v4.9.0/contracts/"
+]

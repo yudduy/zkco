@@ -1,0 +1,28 @@
+{
+  "name": "zkco",
+  "version": "1.0.0",
+  "description": "A zero-knowledge co-processor for offloading computational tasks from Ethereum L1",
+  "private": true,
+  "scripts": {
+    "build": "cd frontend && npm run build",
+    "start": "cd frontend && npm start",
+    "test": "forge test",
+    "postinstall": "cd frontend && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/zkco.git"
+  },
+  "keywords": [
+    "zero-knowledge",
+    "ethereum",
+    "zkproof",
+    "eigenlayer",
+    "restaking"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+} 
