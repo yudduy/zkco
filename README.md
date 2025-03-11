@@ -14,7 +14,7 @@ The project consists of:
 
 ## Live Demo
 
-[View the ZK Co-Processor Dashboard on Vercel](https://zkco.vercel.app)
+[View the ZK Co-Processor Dashboard](https://zkco.onrender.com)
 
 ## Features
 
@@ -111,13 +111,37 @@ The contracts follow a modular design:
 
 ## Deployment
 
-The frontend of this project is optimized for deployment to Vercel:
+### Deploying to Render.com
+
+This project is configured for easy deployment on Render.com:
+
+1. Create a new account on [Render.com](https://render.com) if you don't have one
+2. Click on "New" and select "Blueprint" from the dropdown
+3. Connect your GitHub repository
+4. Render will automatically detect the `render.yaml` configuration
+5. Click "Apply" to deploy the application
+
+The frontend will be deployed as a static site, while the smart contracts should be deployed separately to the Sepolia testnet as described in the Development section.
+
+### Alternative Deployment Options
+
+#### Vercel
+
+The frontend of this project can also be deployed to Vercel:
 
 1. Connect your GitHub repository to Vercel
-2. Set the build command to `npm run build`
-3. Set the build directory to `frontend/build`
+2. Set the build command to `cd frontend && npm run build`
+3. Set the output directory to `frontend/build`
 
-For the smart contracts, deploy to Sepolia testnet as described in the Development section.
+#### Heroku
+
+To deploy on Heroku (requires account verification):
+
+1. Install the Heroku CLI and log in
+2. Create a new Heroku app: `heroku create zkco-app`
+3. Add the Node.js buildpack: `heroku buildpacks:add heroku/nodejs`
+4. Add the static buildpack: `heroku buildpacks:add https://github.com/heroku/heroku-buildpack-static`
+5. Deploy your application: `git push heroku main`
 
 ## Educational Resources
 

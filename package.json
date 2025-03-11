@@ -4,10 +4,10 @@
   "description": "A zero-knowledge co-processor for offloading computational tasks from Ethereum L1",
   "private": true,
   "scripts": {
-    "build": "cd frontend && npm run build",
     "start": "cd frontend && npm start",
-    "test": "forge test",
-    "postinstall": "cd frontend && npm install"
+    "build": "cd frontend && npm install && npm run build",
+    "heroku-postbuild": "cd frontend && npm install && npm run build",
+    "test": "forge test"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,9 @@
   "author": "Your Name",
   "license": "MIT",
   "engines": {
-    "node": ">=14.0.0"
-  }
+    "node": "14.x"
+  },
+  "cacheDirectories": [
+    "frontend/node_modules"
+  ]
 } 
